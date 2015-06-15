@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+aptitude_${UB_VERSION}.orig.tar.xz aptitude-${UB_VERSION}/
+	ftp://ftp.debian.org/debian/pool/main/a/aptitude/
+	http://download.ubk.hu/src/aptitude/
+

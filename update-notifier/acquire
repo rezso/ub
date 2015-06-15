@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+update-notifier_${UB_VERSION}.tar.gz update-notifier-${UB_VERSION}/
+	http://ftp.debian.org/debian/pool/main/u/update-notifier/
+	http://download.ubk.hu/src/apt/

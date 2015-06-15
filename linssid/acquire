@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+linssid_${UB_VERSION}.orig.tar.gz linssid-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/linssid/LinSSID_${UB_VERSION_HEAD2}/

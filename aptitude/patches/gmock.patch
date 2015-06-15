@@ -1,0 +1,90 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2014-06-02 05:17:56.000000000 +0200
++++ patched/configure.ac	2014-09-30 01:07:28.547950152 +0200
+@@ -326,52 +326,6 @@
+   AC_MSG_RESULT([$boost_make_shared_return_type])
+ fi
+ 
+-##### Check for Google Mock #####
+-
+-dnl Google Mock's developers do not support prebuilt libraries (e.g.,
+-dnl they pay no attention to ABI compatibility) and as a result have
+-dnl asked Debian not to ship prebuilt libraries.  So, if we are
+-dnl running on a system where gmock isn't available in $LIBDIR, we
+-dnl guess that maybe there's source available that we can compile
+-dnl during our own build process.
+-
+-AC_MSG_CHECKING([how to link gmock])
+-
+-BUILD_LOCAL_GMOCK=0
+-
+-OLD_LIBS="$LIBS"
+-LIBS="$LIBS -lgmock"
+-
+-AC_LINK_IFELSE([AC_LANG_SOURCE([
+-#include <gmock/gmock.h>
+-
+-int main(int argc, char **argv)
+-{
+-  return 0;
+-}])],
+-        [AC_MSG_RESULT([gmock is in in library path])]
+-        ,
+-        dnl Ok, check whether we can link it if we include the gmock
+-        dnl source code.  Note that it will require both pthreads and
+-        dnl gtest; no way around that.
+-        [LIBS="$OLD_LIBS -lpthread"
+-         OLD_CPPFLAGS="$CPPFLAGS"
+-         CPPFLAGS="$CPPFLAGS -I/usr/src/gtest -I/usr/src/gmock"
+-         AC_LINK_IFELSE([AC_LANG_SOURCE([
+-#include <src/gtest-all.cc>
+-#include <src/gmock-all.cc>
+-
+-int main(int argc, char **argv)
+-{
+-  return 0;
+-}])],
+-           [AC_MSG_RESULT([source is in /usr/src/gmock])
+-            BUILD_LOCAL_GMOCK=1],
+-           [AC_MSG_ERROR([Can't figure out where Google Mock lives; either install the google-mock package or place the library in the link path])])
+-         CPPFLAGS="$OLD_CPPFLAGS"
+-         LIBS="$OLD_LIBS"])
+-
+-##### End Google Mock check #####
+ 
+ PKG_CHECK_MODULES(SQLITE3, sqlite3)
+ 
+diff -Naur orig/src/cmdline/Makefile.am patched/src/cmdline/Makefile.am
+--- orig/src/cmdline/Makefile.am	2014-06-02 05:17:57.000000000 +0200
++++ patched/src/cmdline/Makefile.am	2014-09-30 01:01:03.606041328 +0200
+@@ -1,7 +1,5 @@
+ AM_CPPFLAGS=-I$(top_builddir) -I$(top_srcdir) -I$(top_srcdir)/src -I$(top_srcdir)/intl
+ 
+-SUBDIRS = mocks
+-
+ noinst_LIBRARIES=libcmdline.a
+ 
+ libcmdline_a_SOURCES=\
+diff -Naur orig/src/generic/util/Makefile.am patched/src/generic/util/Makefile.am
+--- orig/src/generic/util/Makefile.am	2014-06-02 05:17:58.000000000 +0200
++++ patched/src/generic/util/Makefile.am	2014-09-30 01:01:43.442238865 +0200
+@@ -4,8 +4,6 @@
+ AM_CPPFLAGS = -I$(top_builddir) -I$(srcdir) -I$(top_srcdir) -I$(top_srcdir)/src
+ DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
+ 
+-SUBDIRS = mocks
+-
+ noinst_LIBRARIES = libgeneric-util.a
+ libgeneric_util_a_SOURCES = \
+ 	compare3.h \
+diff -Naur orig/src/generic/views/Makefile.am patched/src/generic/views/Makefile.am
+--- orig/src/generic/views/Makefile.am	2014-06-02 05:17:58.000000000 +0200
++++ patched/src/generic/views/Makefile.am	2014-09-30 01:02:01.694329372 +0200
+@@ -1,7 +1,5 @@
+ AM_CPPFLAGS=-I$(top_builddir) -I$(top_srcdir) -I$(top_srcdir)/src -I$(top_srcdir)/intl
+ 
+-SUBDIRS=mocks
+-
+ noinst_LIBRARIES = libgeneric-views.a
+ libgeneric_views_a_SOURCES = \
+ 	download_progress.cc \

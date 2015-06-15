@@ -1,0 +1,10 @@
+apt-dev
+boost-dev
+docbook-dtds
+docbook-xsl
+elinks
+libcwidget-dev
+librsvg
+libxapian-dev
+libxslt
+sqlite-dev

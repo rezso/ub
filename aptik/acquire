@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+aptik_${UB_VERSION}~65~ubuntu14.10.1.tar.xz aptik-${UB_VERSION}~65~ubuntu14.10.1/
+	https://code.launchpad.net/~teejee2008/+archive/ubuntu/ppa/+files/

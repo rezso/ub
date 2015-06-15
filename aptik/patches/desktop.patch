@@ -1,0 +1,17 @@
+diff -Naur orig/src/aptik.desktop patched/src/aptik.desktop
+--- orig/src/aptik.desktop	2014-09-20 18:56:33.000000000 +0200
++++ patched/src/aptik.desktop	2014-09-30 04:03:37.348358003 +0200
+@@ -1,12 +1,10 @@
+ [Desktop Entry]
+ Name=Aptik
+-MimeType=
+-Exec=aptik-launcher
++Exec=aptik-gtk
+ Type=Application
+ GenericName=System Migration Utility
+ Terminal=false
+ Icon=aptik
+-Caption=System Migration Utility
+ X-KDE-StartupNotify=false
+ Categories=System;
+ Name[en_IN]=Aptik

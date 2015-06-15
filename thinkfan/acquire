@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+thinkfan-${UB_VERSION}.tar.gz .
+	http://downloads.sourceforge.net/project/thinkfan/

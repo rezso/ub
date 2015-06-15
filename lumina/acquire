@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lumina-${UB_VERSION}.tar.gz lumina-bb8538c/
+	git://github.com/pcbsd/lumina.git@bb8538c

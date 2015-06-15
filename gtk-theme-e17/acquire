@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+163472-E17gtk-${UB_VERSION/0.0./}.tar.xz E17gtk/
+	http://gnome-look.org/CONTENT/content-files/

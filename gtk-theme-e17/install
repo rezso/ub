@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+mkdir -p ${UB_INSTALLDIR}/usr/share/themes/E17gtk
+mv gtk-2.0 ${UB_INSTALLDIR}/usr/share/themes/E17gtk
+mv gtk-3.0 ${UB_INSTALLDIR}/usr/share/themes/E17gtk
+mv metacity-1 ${UB_INSTALLDIR}/usr/share/themes/E17gtk
+mv index.theme ${UB_INSTALLDIR}/usr/share/themes/E17gtk
+
+# original css files made for gtk 3.14, change them
+mv -f gtk-3.12/gtk-widgets-assets-dark.css ${UB_INSTALLDIR}/usr/share/themes/E17gtk/gtk-3.0
+mv -f gtk-3.12/gtk-widgets.css ${UB_INSTALLDIR}/usr/share/themes/E17gtk/gtk-3.0

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+cwidget_${UB_VERSION}.orig.tar.xz cwidget-${UB_VERSION}/
+	ftp://ftp.debian.org/debian/pool/main/c/cwidget/
+	http://download.ubk.hu/src/cwidget/

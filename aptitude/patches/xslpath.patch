@@ -1,0 +1,36 @@
+diff -Naur orig/doc/aptitude-html.xsl patched/doc/aptitude-html.xsl
+--- orig/doc/aptitude-html.xsl	2014-06-02 05:17:56.000000000 +0200
++++ patched/doc/aptitude-html.xsl	2014-09-30 01:58:08.567024792 +0200
+@@ -5,7 +5,7 @@
+ <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                 version="1.0">
+ 
+-<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
++<xsl:import href="/usr/share/sgml/docbook/xsl-stylesheets/html/chunk.xsl"/>
+ 
+ <xsl:import href="aptitude-common.xsl"/>
+ 
+diff -Naur orig/doc/aptitude-man.xsl patched/doc/aptitude-man.xsl
+--- orig/doc/aptitude-man.xsl	2014-06-02 05:17:56.000000000 +0200
++++ patched/doc/aptitude-man.xsl	2014-09-30 02:00:01.763586104 +0200
+@@ -5,7 +5,7 @@
+ <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                 version="1.0">
+ 
+-<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/manpages/docbook.xsl"/>
++<xsl:import href="/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl"/>
+ 
+ <xsl:param name="chunker.output.method" select="'text'"/>
+ <xsl:param name="man.output.encoding" select="'UTF-8'"/>
+diff -Naur orig/doc/aptitude-txt.xsl patched/doc/aptitude-txt.xsl
+--- orig/doc/aptitude-txt.xsl	2014-06-02 05:17:56.000000000 +0200
++++ patched/doc/aptitude-txt.xsl	2014-09-30 01:58:55.403257041 +0200
+@@ -5,7 +5,7 @@
+ <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                 version="1.0">
+ 
+-<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/docbook.xsl"/>
++<xsl:import href="/usr/share/sgml/docbook/xsl-stylesheets/html/docbook.xsl"/>
+ 
+ <xsl:import href="aptitude-common.xsl"/>
+ 

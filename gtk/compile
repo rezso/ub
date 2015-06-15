@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+# autoreconf -vif
+ub_compile \
+	--enable-gtk2-dependency \
+	--disable-broadway-backend \
+	--disable-wayland-backend \
+	--enable-x11-backend \
+	--enable-colord

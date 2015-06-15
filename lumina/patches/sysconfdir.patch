@@ -1,0 +1,14 @@
+diff -Naur orig/lumina-desktop/lumina-desktop.pro patched/lumina-desktop/lumina-desktop.pro
+--- orig/lumina-desktop/lumina-desktop.pro	2015-02-03 12:57:03.000000000 +0100
++++ patched/lumina-desktop/lumina-desktop.pro	2015-02-05 20:10:28.252943812 +0100
+@@ -135,8 +135,8 @@
+ 		audiofiles/Login.ogg
+ defaults.path = $$PREFIX/share/Lumina-DE/
+ 
+-conf.path = $$PREFIX/etc
+-conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
++conf.path = /etc
++conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)/etc/luminaDesktop.conf
+ 
+ TRANSLATIONS =  i18n/lumina-desktop_af.ts \
+                 i18n/lumina-desktop_ar.ts \

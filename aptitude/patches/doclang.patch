@@ -1,0 +1,9 @@
+diff -Naur orig/doc/Makefile.am patched/doc/Makefile.am
+--- orig/doc/Makefile.am	2014-06-02 05:17:56.000000000 +0200
++++ patched/doc/Makefile.am	2014-09-30 02:40:46.367708241 +0200
+@@ -1,4 +1,4 @@
+-SUBDIRS=cs de en es fi fr it ja pl ru po4a
++SUBDIRS=en
+ 
+ EXTRA_DIST=aptitude-common.xsl aptitude-html.xsl aptitude-man.xsl aptitude-txt.xsl aptitude.css html-to-text xx/Makefile.am
+ 

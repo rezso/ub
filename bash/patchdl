@@ -1,0 +1,12 @@
+#!/bin/bash
+
+useragent="Mozilla/5.0 (X11; Linux i686; rv:35.0) Gecko/20100101 Firefox/35.0"
+
+cd patches
+
+for i in $(seq -w 1 39); do
+
+wget -U "$useragent" ftp://ftp.gnu.org/gnu/bash/bash-4.3-patches/bash43-0$i
+mv bash43-0$i bash43-0$i.patch0
+
+done
