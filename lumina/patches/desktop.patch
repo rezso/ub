@@ -1,6 +1,6 @@
 diff -Naur orig/lumina-desktop/Lumina-DE.desktop patched/lumina-desktop/Lumina-DE.desktop
---- orig/lumina-desktop/Lumina-DE.desktop	2015-05-26 18:32:22.000000000 +0200
-+++ patched/lumina-desktop/Lumina-DE.desktop	2015-05-26 21:47:11.722884209 +0200
+--- orig/lumina-desktop/Lumina-DE.desktop	2015-07-05 22:27:30.000000000 +0200
++++ patched/lumina-desktop/Lumina-DE.desktop	2015-07-05 22:31:39.030287095 +0200
 @@ -1,7 +1,7 @@
  [Desktop Entry]
  Exec=Lumina-DE
@@ -11,8 +11,8 @@ diff -Naur orig/lumina-desktop/Lumina-DE.desktop patched/lumina-desktop/Lumina-D
  Name=Lumina
  Name[de]=Lumina
 diff -Naur orig/lumina-fm/lumina-fm.desktop patched/lumina-fm/lumina-fm.desktop
---- orig/lumina-fm/lumina-fm.desktop	2015-05-26 18:32:22.000000000 +0200
-+++ patched/lumina-fm/lumina-fm.desktop	2015-05-26 21:47:49.619072126 +0200
+--- orig/lumina-fm/lumina-fm.desktop	2015-07-05 22:27:30.000000000 +0200
++++ patched/lumina-fm/lumina-fm.desktop	2015-07-05 22:31:39.030287095 +0200
 @@ -1,6 +1,6 @@
  [Desktop Entry]
  Exec=lumina-fm %F
@@ -22,8 +22,8 @@ diff -Naur orig/lumina-fm/lumina-fm.desktop patched/lumina-fm/lumina-fm.desktop
  Type=Application
  StartupNotify=true
 diff -Naur orig/lumina-info/lumina-info.desktop patched/lumina-info/lumina-info.desktop
---- orig/lumina-info/lumina-info.desktop	2015-05-26 18:32:22.000000000 +0200
-+++ patched/lumina-info/lumina-info.desktop	2015-05-26 21:49:23.423537277 +0200
+--- orig/lumina-info/lumina-info.desktop	2015-07-05 22:27:30.000000000 +0200
++++ patched/lumina-info/lumina-info.desktop	2015-07-05 22:32:24.058510378 +0200
 @@ -1,11 +1,10 @@
  [Desktop Entry]
  Exec=lumina-info
@@ -33,7 +33,7 @@ diff -Naur orig/lumina-info/lumina-info.desktop patched/lumina-info/lumina-info.
  Type=Application
  StartupNotify=true
  Categories=System;
--OnlyShowIn=LUMINA
+-OnlyShowIn=Lumina
  Name=Lumina Desktop Information
  Comment=View information about the Lumina Desktop Environment
  
