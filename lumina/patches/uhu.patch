@@ -1,15 +1,17 @@
 diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cpp
---- orig/libLumina/LuminaOS-Linux.cpp	2015-05-26 18:32:22.000000000 +0200
-+++ patched/libLumina/LuminaOS-Linux.cpp	2015-05-26 21:38:23.516264974 +0200
-@@ -21,7 +21,7 @@
+--- orig/libLumina/LuminaOS-Linux.cpp	2015-07-16 14:41:16.000000000 +0200
++++ patched/libLumina/LuminaOS-Linux.cpp	2015-07-16 14:49:52.583515591 +0200
+@@ -21,8 +21,8 @@
  
  //OS-specific application shortcuts (*.desktop files)
  QString LOS::ControlPanelShortcut(){ return ""; } //system control panel
 -QString LOS::AppStoreShortcut(){ return ""; } //graphical app/pkg manager
+-QString LOS::QtConfigShortcut(){ return LOS::AppPrefix() + "/bin/qtconfig-qt4"; } //qtconfig binary (NOT *.desktop file)
 +QString LOS::AppStoreShortcut(){ return LOS::AppPrefix() + "/share/applications/synaptic.desktop"; } //graphical app/pkg manager
- QString LOS::QtConfigShortcut(){ return LOS::AppPrefix() + "/bin/qtconfig-qt4"; } //qtconfig binary (NOT *.desktop file)
++QString LOS::QtConfigShortcut(){ return LOS::AppPrefix() + "/bin/qt5ct"; } //qtconfig binary (NOT *.desktop file)
  
  // ==== ExternalDevicePaths() ====
+ QStringList LOS::ExternalDevicePaths(){
 @@ -136,27 +136,37 @@
  
  //Check for user system permission (shutdown/restart)
@@ -104,4 +106,4 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
 +  return qRound(per);
  }
  
- #endif
+ QStringList LOS::DiskUsage(){ //Returns: List of current read/write stats for each device
