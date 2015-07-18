@@ -1,7 +1,0 @@
-#!/bin/sh -eux
-
-ub_install
-
-cd ${UB_INSTALLDIR}/usr/lib
-ln -s libgdk-3.so.0.1400.13 libgdk-3.so.0.1200.2
-ln -s libgdk-3.so.0.1400.13 libgtk-3.so.0.1200.2
