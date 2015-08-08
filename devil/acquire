@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+DevIL-${UB_VERSION}.tar.gz devil-${UB_VERSION/b/}/
+    http://downloads.sourceforge.net/project/openil/DevIL/${UB_VERSION}/

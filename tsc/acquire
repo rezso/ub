@@ -1,0 +1,22 @@
+#!/usr/bin/env dl
+
+v${UB_VERSION/~/-}.tar.gz TSC-${UB_VERSION/~/-}/
+	https://github.com/Secretchronicles/TSC/archive/
+
+mruby-1.0.0.tar.gz mruby-e63c1e1/ :mruby/mruby
+	git://github.com/mruby/mruby.git@e63c1e1
+
+mruby-json.tar.gz mruby-json-d58d532/ :mruby/mgems/mruby-json
+	git://github.com/mattn/mruby-json.git@d58d532
+	
+mruby-md5.tar.gz mruby-md5-1648877/ :mruby/mgems/mruby-md5
+	git://github.com/mattn/mruby-md5.git@1648877
+
+mruby-pcre-regexp.tar.gz mruby-pcre-regexp-6fdb5d5/ :mruby/mgems/mruby-pcre-regexp
+	git://github.com/mattn/mruby-pcre-regexp.git@6fdb5d5
+	
+mruby-sleep.tar.gz mruby-sleep-3f81ef9/ :mruby/mgems/mruby-sleep
+	git://github.com/matsumoto-r/mruby-sleep.git@3f81ef9
+
+#v${UB_VERSION/~/-}.tar.gz TSC-53d44da/
+#	git://github.com/Secretchronicles/TSC.git@53d44da

@@ -1,0 +1,12 @@
+diff -Naur orig/tsc/CMakeLists.txt patched/tsc/CMakeLists.txt
+--- orig/tsc/CMakeLists.txt	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/CMakeLists.txt	2015-08-08 19:19:37.481303388 +0200
+@@ -409,7 +409,7 @@
+   DESTINATION ${sharedir}/worlds
+   COMPONENT worlds)
+ install(FILES "${TSC_SOURCE_DIR}/docs/man/tsc.6"
+-  DESTINATION man/man6
++  DESTINATION share/man/man6
+   COMPONENT base)
+ install(FILES "${TSC_SOURCE_DIR}/extras/icons/tsc_icon_16.png"
+   DESTINATION share/icons/hicolor/16x16/apps

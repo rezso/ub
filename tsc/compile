@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+cd tsc
+ub_compile \
+	-DENABLE_MRUBY=ON

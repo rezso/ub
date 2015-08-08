@@ -1,0 +1,248 @@
+diff -Naur orig/tsc/src/core/global_basic.hpp patched/tsc/src/core/global_basic.hpp
+--- orig/tsc/src/core/global_basic.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/core/global_basic.hpp	2015-08-08 15:08:04.949598245 +0200
+@@ -119,6 +119,7 @@
+ #endif
+ 
+ // MRuby
++#ifdef ENABLE_MRUBY
+ #include <mruby.h>
+ #include <mruby/compile.h>
+ #include <mruby/string.h>
+@@ -129,6 +130,7 @@
+ #include <mruby/variable.h>
+ #include <mruby/proc.h>
+ #include <mruby/range.h>
++#endif
+ 
+ #ifndef PNG_COLOR_TYPE_RGBA
+ #define PNG_COLOR_TYPE_RGBA PNG_COLOR_TYPE_RGB_ALPHA
+diff -Naur orig/tsc/src/level/level.hpp patched/tsc/src/level/level.hpp
+--- orig/tsc/src/level/level.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/level/level.hpp	2015-08-08 18:12:12.853247161 +0200
+@@ -24,7 +24,9 @@
+ #include "../objects/level_entry.hpp"
+ #include "../audio/random_sound.hpp"
+ #include "../video/animation.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/scripting.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/level/level_player.hpp patched/tsc/src/level/level_player.hpp
+--- orig/tsc/src/level/level_player.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/level/level_player.hpp	2015-08-08 18:12:36.893366369 +0200
+@@ -20,8 +20,10 @@
+ #include "../core/global_basic.hpp"
+ #include "../objects/ball.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/scripting.hpp"
+ #include "../scripting/objects/misc/mrb_level_player.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/animated_sprite.hpp patched/tsc/src/objects/animated_sprite.hpp
+--- orig/tsc/src/objects/animated_sprite.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/animated_sprite.hpp	2015-08-08 18:04:46.623034424 +0200
+@@ -18,7 +18,9 @@
+ #define TSC_ANIMATED_SPRITE_HPP
+ 
+ #include "../objects/movingsprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/sprites/mrb_animated_sprite.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/bonusbox.hpp patched/tsc/src/objects/bonusbox.hpp
+--- orig/tsc/src/objects/bonusbox.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/bonusbox.hpp	2015-08-08 18:05:59.975398159 +0200
+@@ -21,7 +21,9 @@
+ #include "../core/xml_attributes.hpp"
+ #include "../objects/box.hpp"
+ #include "../objects/powerup.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/boxes/mrb_bonusbox.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/box.hpp patched/tsc/src/objects/box.hpp
+--- orig/tsc/src/objects/box.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/box.hpp	2015-08-08 18:06:15.915477202 +0200
+@@ -20,7 +20,9 @@
+ #include "../core/global_basic.hpp"
+ #include "../core/xml_attributes.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/boxes/mrb_box.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/crate.hpp patched/tsc/src/objects/crate.hpp
+--- orig/tsc/src/objects/crate.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/crate.hpp	2015-08-08 18:06:31.887556403 +0200
+@@ -18,7 +18,9 @@
+ #include "animated_sprite.hpp"
+ #include "../core/global_basic.hpp"
+ #include "../core/xml_attributes.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_crate.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/enemystopper.hpp patched/tsc/src/objects/enemystopper.hpp
+--- orig/tsc/src/objects/enemystopper.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/enemystopper.hpp	2015-08-08 18:06:44.299617951 +0200
+@@ -19,7 +19,9 @@
+ 
+ #include "../core/global_basic.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_enemy_stopper.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/goldpiece.hpp patched/tsc/src/objects/goldpiece.hpp
+--- orig/tsc/src/objects/goldpiece.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/goldpiece.hpp	2015-08-08 18:07:03.955715420 +0200
+@@ -20,9 +20,11 @@
+ #include "../core/global_basic.hpp"
+ #include "../core/xml_attributes.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_jewel.hpp"
+ #include "../scripting/objects/specials/mrb_jumping_jewel.hpp"
+ #include "../scripting/objects/specials/mrb_falling_jewel.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/level_entry.hpp patched/tsc/src/objects/level_entry.hpp
+--- orig/tsc/src/objects/level_entry.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/level_entry.hpp	2015-08-08 18:07:21.083800354 +0200
+@@ -19,7 +19,9 @@
+ 
+ #include "../core/global_basic.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_level_entry.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/level_exit.hpp patched/tsc/src/objects/level_exit.hpp
+--- orig/tsc/src/objects/level_exit.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/level_exit.hpp	2015-08-08 18:07:33.719863013 +0200
+@@ -20,7 +20,9 @@
+ #include "../core/global_basic.hpp"
+ #include "../objects/animated_sprite.hpp"
+ #include "../core/camera.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_level_exit.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/moving_platform.hpp patched/tsc/src/objects/moving_platform.hpp
+--- orig/tsc/src/objects/moving_platform.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/moving_platform.hpp	2015-08-08 18:07:57.747982162 +0200
+@@ -20,7 +20,9 @@
+ #include "../core/global_basic.hpp"
+ #include "../objects/animated_sprite.hpp"
+ #include "../objects/path.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_moving_platform.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/movingsprite.hpp patched/tsc/src/objects/movingsprite.hpp
+--- orig/tsc/src/objects/movingsprite.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/movingsprite.hpp	2015-08-08 18:05:04.891125011 +0200
+@@ -18,7 +18,9 @@
+ #define TSC_MOVINGSPRITE_HPP
+ 
+ #include "../objects/sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/sprites/mrb_moving_sprite.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/path.hpp patched/tsc/src/objects/path.hpp
+--- orig/tsc/src/objects/path.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/path.hpp	2015-08-08 18:08:11.176048748 +0200
+@@ -19,7 +19,9 @@
+ 
+ #include "../core/global_basic.hpp"
+ #include "../objects/sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/specials/mrb_path.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/powerup.hpp patched/tsc/src/objects/powerup.hpp
+--- orig/tsc/src/objects/powerup.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/powerup.hpp	2015-08-08 18:08:30.380143976 +0200
+@@ -20,10 +20,12 @@
+ #include "../core/global_basic.hpp"
+ #include "../core/xml_attributes.hpp"
+ #include "../objects/animated_sprite.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/powerups/mrb_powerup.hpp"
+ #include "../scripting/objects/powerups/mrb_berry.hpp"
+ #include "../scripting/objects/powerups/mrb_fireberry.hpp"
+ #include "../scripting/objects/powerups/mrb_cookie.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/spinbox.hpp patched/tsc/src/objects/spinbox.hpp
+--- orig/tsc/src/objects/spinbox.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/spinbox.hpp	2015-08-08 18:08:42.796205544 +0200
+@@ -19,7 +19,9 @@
+ 
+ #include "../core/global_basic.hpp"
+ #include "../objects/box.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/boxes/mrb_spinbox.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/sprite.hpp patched/tsc/src/objects/sprite.hpp
+--- orig/tsc/src/objects/sprite.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/sprite.hpp	2015-08-08 18:10:09.936637650 +0200
+@@ -21,9 +21,11 @@
+ #include "../core/math/rect.hpp"
+ #include "../video/video.hpp"
+ #include "../core/collision.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/scriptable_object.hpp"
+ #include "../scripting/scripting.hpp"
+ #include "../scripting/objects/sprites/mrb_sprite.hpp"
++#endif
+ 
+ namespace TSC {
+ 
+diff -Naur orig/tsc/src/objects/star.hpp patched/tsc/src/objects/star.hpp
+--- orig/tsc/src/objects/star.hpp	2015-07-27 13:10:12.000000000 +0200
++++ patched/tsc/src/objects/star.hpp	2015-08-08 18:08:54.064261419 +0200
+@@ -19,7 +19,9 @@
+ 
+ #include "../core/global_basic.hpp"
+ #include "../objects/powerup.hpp"
++#ifdef ENABLE_MRUBY
+ #include "../scripting/objects/powerups/mrb_lemon.hpp"
++#endif
+ 
+ namespace TSC {
+ 
