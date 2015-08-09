@@ -1,6 +1,6 @@
 diff -Naur orig/.config.i386 patched/.config.i386
 --- orig/.config.i386	1970-01-01 01:00:00.000000000 +0100
-+++ patched/.config.i386	2015-04-28 18:40:24.000000000 +0200
++++ patched/.config.i386	2015-08-08 21:52:16.850722248 +0200
 @@ -0,0 +1,6598 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
@@ -21,7 +21,7 @@ diff -Naur orig/.config.i386 patched/.config.i386
 +CONFIG_STACKTRACE_SUPPORT=y
 +CONFIG_HAVE_LATENCYTOP_SUPPORT=y
 +CONFIG_MMU=y
-+# CONFIG_NEED_DMA_MAP_STATE is not set
++CONFIG_NEED_DMA_MAP_STATE=y
 +CONFIG_NEED_SG_DMA_LENGTH=y
 +CONFIG_GENERIC_ISA_DMA=y
 +CONFIG_GENERIC_BUG=y
