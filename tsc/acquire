@@ -1,5 +1,8 @@
 #!/usr/bin/env dl
 
+#TSC-${UB_VERSION/~/-}.tar.xz TSC-${UB_VERSION/~/-}/
+#	ftp://ftp.secretchronicles.de/releases/
+
 v${UB_VERSION/~/-}.tar.gz TSC-${UB_VERSION/~/-}/
 	https://github.com/Secretchronicles/TSC/archive/
 
