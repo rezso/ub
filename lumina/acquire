@@ -1,4 +1,7 @@
 #!/usr/bin/env dl
 
-lumina-${UB_VERSION}.tar.gz lumina-aedadeb/
-	git://github.com/pcbsd/lumina.git@aedadeb
+#lumina-${UB_VERSION}.tar.gz lumina-aedadeb/
+#	git://github.com/pcbsd/lumina.git@aedadeb
+
+v${UB_VERSION}-Release.tar.gz lumina-${UB_VERSION}-Release/
+	https://github.com/pcbsd/lumina/archive/
