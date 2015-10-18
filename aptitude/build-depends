@@ -5,6 +5,6 @@ docbook-xsl
 elinks
 libcwidget-dev
 librsvg
-libxapian-dev
 libxslt
 sqlite-dev
+xapian
