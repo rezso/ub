@@ -1,4 +1,0 @@
-#!/bin/sh
-
-systemctl enable icmpredirect_fix
-exec mkinitrd-installedkernel
