@@ -1,14 +1,20 @@
 diff -Naur orig/lumina-desktop/lumina-desktop.pro patched/lumina-desktop/lumina-desktop.pro
---- orig/lumina-desktop/lumina-desktop.pro	2015-02-03 12:57:03.000000000 +0100
-+++ patched/lumina-desktop/lumina-desktop.pro	2015-02-05 20:10:28.252943812 +0100
-@@ -135,8 +135,8 @@
+--- orig/lumina-desktop/lumina-desktop.pro	2015-10-23 20:08:10.000000000 +0200
++++ patched/lumina-desktop/lumina-desktop.pro	2015-11-22 01:14:31.615396623 +0100
+@@ -98,14 +98,14 @@
  		audiofiles/Login.ogg
  defaults.path = $$PREFIX/share/Lumina-DE/
  
 -conf.path = $$PREFIX/etc
--conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
 +conf.path = /etc
-+conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)/etc/luminaDesktop.conf
  
- TRANSLATIONS =  i18n/lumina-desktop_af.ts \
-                 i18n/lumina-desktop_ar.ts \
+ #Now do any PC-BSD defaults (if set)
+ PCBSD{
+   conf.extra = cp defaults/luminaDesktop.pcbsd.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
+   defaults.extra = cp defaults/desktop-background.pcbsd.jpg $(INSTALL_ROOT)$$PREFIX/share/Lumina-DE/desktop-background.jpg
+ }else{
+-  conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
++  conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)/etc/luminaDesktop.conf.dist
+   defaults.extra = cp defaults/desktop-background.jpg $(INSTALL_ROOT)$$PREFIX/share/Lumina-DE/desktop-background.jpg
+ }
+ 

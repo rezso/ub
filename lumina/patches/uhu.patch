@@ -1,6 +1,6 @@
 diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cpp
---- orig/libLumina/LuminaOS-Linux.cpp	2015-07-16 14:41:16.000000000 +0200
-+++ patched/libLumina/LuminaOS-Linux.cpp	2015-07-16 14:49:52.583515591 +0200
+--- orig/libLumina/LuminaOS-Linux.cpp	2015-10-23 20:08:10.000000000 +0200
++++ patched/libLumina/LuminaOS-Linux.cpp	2015-11-22 01:22:57.073903056 +0100
 @@ -21,8 +21,8 @@
  
  //OS-specific application shortcuts (*.desktop files)
@@ -12,7 +12,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  
  // ==== ExternalDevicePaths() ====
  QStringList LOS::ExternalDevicePaths(){
-@@ -136,27 +136,37 @@
+@@ -136,7 +136,9 @@
  
  //Check for user system permission (shutdown/restart)
  bool LOS::userHasShutdownAccess(){
@@ -22,21 +22,8 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
 +  /org/freedesktop/login1 org.freedesktop.login1.Manager.CanPowerOff");
  }
  
- //System Shutdown
- void LOS::systemShutdown(){ //start poweroff sequence
--  QProcess::startDetached("shutdown -P -h now");
-+  QProcess::startDetached("dbus-send --system --print-reply \
-+  --dest=org.freedesktop.login1 /org/freedesktop/login1 \
-+  org.freedesktop.login1.Manager.PowerOff boolean:true");
- }
- 
- //System Restart
- void LOS::systemRestart(){ //start reboot sequence
--  QProcess::startDetached("shutdown -r now");
-+  QProcess::startDetached("dbus-send --system --print-reply \
-+  --dest=org.freedesktop.login1 /org/freedesktop/login1 \
-+  org.freedesktop.login1.Manager.Reboot boolean:true");
- }
+ //Check for whether the system is safe to power off (no updates being perfomed)
+@@ -156,12 +158,16 @@
  
  //Check for suspend support
  bool LOS::systemCanSuspend(){
@@ -55,7 +42,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  }
  
  //Battery Availability
-@@ -216,23 +226,45 @@
+@@ -221,23 +227,45 @@
  
  //file system capacity
  QString LOS::FileSystemCapacity(QString dir) { //Return: percentage capacity as give by the df command
