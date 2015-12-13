@@ -6,5 +6,6 @@ elinks
 libcwidget-dev
 librsvg
 libxslt
+po4a
 sqlite-dev
 xapian
