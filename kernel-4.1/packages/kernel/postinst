@@ -2,3 +2,7 @@
 
 systemctl enable icmpredirect_fix
 exec mkinitrd-installedkernel
+if [ -f /boot/grub2/grub.cfg ]; then
+	mv /boot/grub2/grub.cfg /boot/grub2/grub.cfg.`date '+%F'`
+fi
+exec grub2-mkconfig -o /boot/grub2/grub.cfg
