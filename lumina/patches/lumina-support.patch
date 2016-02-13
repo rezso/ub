@@ -1,0 +1,17 @@
+diff -Naur orig/lumina-info/lumina-support.desktop patched/lumina-info/lumina-support.desktop
+--- orig/lumina-info/lumina-support.desktop	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-info/lumina-support.desktop	2016-02-13 01:00:33.634289719 +0100
+@@ -1,11 +1,8 @@
+ [Desktop Entry]
+ Type=Link
+ URL=https://webchat.freenode.net/?channels=%23lumina-desktop
+-Icon=/usr/local/share/pixmaps/Lumina-DE.png
+-Terminal=false
+-StartupNotify=true
+-Categories=System;
+-OnlyShowIn=Lumina
++Icon=Lumina-DE
++#OnlyShowIn=Lumina
+ Name=Community Support
+ GenericName=Get Desktop Help
+ Comment=Ask for desktop support on the community IRC channel

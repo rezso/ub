@@ -3,7 +3,7 @@
 qmake-qt5 \
 	PREFIX="/usr" \
 	INSTALL_ROOT="$UB_INSTALLDIR" \
-	QMAKE_LFLAGS="$(LDFLAGS) -Wl,--as-needed" \
+	QMAKE_LFLAGS="-Wl,--as-needed" \
 	lumina.pro
 
 ub_compile

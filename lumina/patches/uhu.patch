@@ -1,18 +1,16 @@
 diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cpp
---- orig/libLumina/LuminaOS-Linux.cpp	2015-10-23 20:08:10.000000000 +0200
-+++ patched/libLumina/LuminaOS-Linux.cpp	2015-11-22 01:22:57.073903056 +0100
-@@ -21,8 +21,8 @@
+--- orig/libLumina/LuminaOS-Linux.cpp	2016-02-10 21:41:00.000000000 +0100
++++ patched/libLumina/LuminaOS-Linux.cpp	2016-02-13 00:41:59.880766913 +0100
+@@ -21,7 +21,7 @@
  
  //OS-specific application shortcuts (*.desktop files)
  QString LOS::ControlPanelShortcut(){ return ""; } //system control panel
 -QString LOS::AppStoreShortcut(){ return ""; } //graphical app/pkg manager
--QString LOS::QtConfigShortcut(){ return LOS::AppPrefix() + "/bin/qtconfig-qt4"; } //qtconfig binary (NOT *.desktop file)
-+QString LOS::AppStoreShortcut(){ return LOS::AppPrefix() + "/share/applications/synaptic.desktop"; } //graphical app/pkg manager
-+QString LOS::QtConfigShortcut(){ return LOS::AppPrefix() + "/bin/qt5ct"; } //qtconfig binary (NOT *.desktop file)
++QString LOS::AppStoreShortcut(){ return LOS::SysPrefix() + "/share/applications/synaptic.desktop"; } //graphical app/pkg manager
  
  // ==== ExternalDevicePaths() ====
  QStringList LOS::ExternalDevicePaths(){
-@@ -136,7 +136,9 @@
+@@ -135,7 +135,9 @@
  
  //Check for user system permission (shutdown/restart)
  bool LOS::userHasShutdownAccess(){
@@ -23,7 +21,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  }
  
  //Check for whether the system is safe to power off (no updates being perfomed)
-@@ -156,12 +158,16 @@
+@@ -155,12 +157,16 @@
  
  //Check for suspend support
  bool LOS::systemCanSuspend(){
@@ -42,7 +40,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  }
  
  //Battery Availability
-@@ -221,23 +227,45 @@
+@@ -220,23 +226,45 @@
  
  //file system capacity
  QString LOS::FileSystemCapacity(QString dir) { //Return: percentage capacity as give by the df command

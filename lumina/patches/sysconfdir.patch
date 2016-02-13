@@ -1,20 +1,12 @@
-diff -Naur orig/lumina-desktop/lumina-desktop.pro patched/lumina-desktop/lumina-desktop.pro
---- orig/lumina-desktop/lumina-desktop.pro	2015-10-23 20:08:10.000000000 +0200
-+++ patched/lumina-desktop/lumina-desktop.pro	2015-11-22 01:14:31.615396623 +0100
-@@ -98,14 +98,14 @@
- 		audiofiles/Login.ogg
- defaults.path = $$PREFIX/share/Lumina-DE/
- 
--conf.path = $$PREFIX/etc
-+conf.path = /etc
- 
- #Now do any PC-BSD defaults (if set)
- PCBSD{
-   conf.extra = cp defaults/luminaDesktop.pcbsd.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
-   defaults.extra = cp defaults/desktop-background.pcbsd.jpg $(INSTALL_ROOT)$$PREFIX/share/Lumina-DE/desktop-background.jpg
- }else{
--  conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)$$PREFIX/etc/luminaDesktop.conf.dist
-+  conf.extra = cp defaults/luminaDesktop.conf $(INSTALL_ROOT)/etc/luminaDesktop.conf.dist
-   defaults.extra = cp defaults/desktop-background.jpg $(INSTALL_ROOT)$$PREFIX/share/Lumina-DE/desktop-background.jpg
- }
- 
+diff -Naur orig/OS-detect.pri patched/OS-detect.pri
+--- orig/OS-detect.pri	2016-02-10 21:41:00.000000000 +0100
++++ patched/OS-detect.pri	2016-02-13 00:54:48.328577440 +0100
+@@ -85,7 +85,7 @@
+   # If the detailed install variables are not set - create them from the general vars
+   !defined(L_BINDIR){ L_BINDIR = $${PREFIX}/bin }
+   !defined(L_LIBDIR){ L_LIBDIR = $${PREFIX}/lib }
+-  !defined(L_ETCDIR){ L_ETCDIR = $${PREFIX}/etc }
++  !defined(L_ETCDIR){ L_ETCDIR = /etc }
+   !defined(L_SHAREDIR){ L_SHAREDIR = $${PREFIX}/share }
+   !defined(L_INCLUDEDIR){ L_INCLUDEDIR = $${PREFIX}/include }
+   !defined(L_SESSDIR){ L_SESSDIR = $${L_SHAREDIR}/xsessions }
