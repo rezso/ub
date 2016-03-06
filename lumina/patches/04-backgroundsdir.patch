@@ -1,0 +1,42 @@
+diff -Naur orig/lumina-config/mainUI.cpp patched/lumina-config/mainUI.cpp
+--- orig/lumina-config/mainUI.cpp	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-config/mainUI.cpp	2016-03-05 17:17:14.037946776 +0100
+@@ -704,7 +704,7 @@
+ 
+ void MainUI::deskbgadded(){
+   //Prompt the user to find an image file to use for a background
+-  QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
++  QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+   qDebug() << "Looking for wallpaper dir:" << dir;
+   if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
+   QStringList imgs = LUtils::imageExtensions();
+@@ -739,7 +739,7 @@
+ 
+ void MainUI::deskbgdiradded(){
+   //Add the files from a single directory
+- QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
++ QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+   qDebug() << "Looking for wallpaper dir:" << dir;
+   if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
+   dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);
+@@ -765,7 +765,7 @@
+ 
+ void MainUI::deskbgdirradded(){
+   //Recursively add files from a directory
+- QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
++ QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+   qDebug() << "Looking for wallpaper dir:" << dir;
+   if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
+   dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);
+diff -Naur orig/lumina-desktop/lumina-desktop.pro patched/lumina-desktop/lumina-desktop.pro
+--- orig/lumina-desktop/lumina-desktop.pro	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-desktop/lumina-desktop.pro	2016-03-05 17:18:49.146418393 +0100
+@@ -71,7 +71,7 @@
+ 			wallpapers/Lumina_Wispy_green.jpg \
+ 			wallpapers/Lumina_Wispy_purple.jpg \
+ 			wallpapers/Lumina_Wispy_red.jpg
+-wallpapers.path = $${L_SHAREDIR}/wallpapers/Lumina-DE
++wallpapers.path = $${L_SHAREDIR}/backgrounds/Lumina-DE
+ 
+ 
+ defaults.files = defaults/luminaDesktop.conf \

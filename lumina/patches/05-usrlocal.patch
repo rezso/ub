@@ -1,0 +1,56 @@
+diff -Naur orig/lumina-desktop/defaults/luminaDesktop.conf patched/lumina-desktop/defaults/luminaDesktop.conf
+--- orig/lumina-desktop/defaults/luminaDesktop.conf	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-desktop/defaults/luminaDesktop.conf	2016-03-05 17:28:53.297414216 +0100
+@@ -24,8 +24,8 @@
+ # *.desktop files provide better support for input formats, and are recommended
+ #session_default_terminal=xterm 
+ #session_default_filemanager=lumina-fm 
+-#session_default_webbrowser=/usr/local/share/applications/firefox.desktop
+-#session_default_email=/usr/local/share/applications/thunderbird.desktop
++#session_default_webbrowser=firefox
++#session_default_email=thunderbird
+ 
+ #THEME SETTINGS
+ #theme.themefile=<file path> #Absolute path to the theme template file to use (disable for Lumina-Default)
+diff -Naur orig/lumina-desktop/fluxboxconf/fluxbox-init-rc patched/lumina-desktop/fluxboxconf/fluxbox-init-rc
+--- orig/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-03-05 17:27:52.837114410 +0100
+@@ -66,7 +66,7 @@
+ session.titlebar.right:	Minimize Maximize Close
+ session.colorsPerChannel:	4
+ session.opaqueMove:	False
+-session.styleFile:	/usr/local/share/fluxbox/styles/bora_black
++session.styleFile:	/usr/share/fluxbox/styles/bora_black
+ session.doubleClickInterval:	250
+ session.iconbar:	false
+ session.cacheLife:	5
+diff -Naur orig/lumina-fileinfo/MainUI.ui patched/lumina-fileinfo/MainUI.ui
+--- orig/lumina-fileinfo/MainUI.ui	2016-02-10 21:41:00.000000000 +0100
++++ patched/lumina-fileinfo/MainUI.ui	2016-03-05 17:25:02.364269081 +0100
+@@ -312,7 +312,7 @@
+            </property>
+            <property name="icon">
+             <iconset>
+-             <normalon>../../../../usr/local/share/icons/gnome/32x32/actions/gnome-run.png</normalon>
++             <normalon>../../../../usr/share/icons/gnome/32x32/actions/gnome-run.png</normalon>
+             </iconset>
+            </property>
+           </widget>
+@@ -327,7 +327,7 @@
+            </property>
+            <property name="icon">
+             <iconset>
+-             <normalon>../../../../usr/local/share/icons/gnome/32x32/places/folder.png</normalon>
++             <normalon>../../../../usr/share/icons/gnome/32x32/places/folder.png</normalon>
+             </iconset>
+            </property>
+           </widget>
+@@ -347,7 +347,7 @@
+              </property>
+              <property name="icon">
+               <iconset>
+-               <normalon>../../../../usr/local/share/icons/gnome/32x32/categories/xfce-graphics.png</normalon>
++               <normalon>../../../../usr/share/icons/gnome/32x32/categories/xfce-graphics.png</normalon>
+               </iconset>
+              </property>
+              <property name="iconSize">
