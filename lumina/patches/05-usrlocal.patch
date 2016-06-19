@@ -1,20 +1,31 @@
-diff -Naur orig/lumina-desktop/defaults/luminaDesktop.conf patched/lumina-desktop/defaults/luminaDesktop.conf
---- orig/lumina-desktop/defaults/luminaDesktop.conf	2016-02-10 21:41:00.000000000 +0100
-+++ patched/lumina-desktop/defaults/luminaDesktop.conf	2016-03-05 17:28:53.297414216 +0100
+diff -Naur orig/src-qt5/core/lumina-desktop/defaults/luminaDesktop.conf patched/src-qt5/core/lumina-desktop/defaults/luminaDesktop.conf
+--- orig/src-qt5/core/lumina-desktop/defaults/luminaDesktop.conf	2016-05-03 18:03:16.000000000 +0200
++++ patched/src-qt5/core/lumina-desktop/defaults/luminaDesktop.conf	2016-06-18 02:14:45.365732860 +0200
 @@ -24,8 +24,8 @@
  # *.desktop files provide better support for input formats, and are recommended
  #session_default_terminal=xterm 
  #session_default_filemanager=lumina-fm 
 -#session_default_webbrowser=/usr/local/share/applications/firefox.desktop
 -#session_default_email=/usr/local/share/applications/thunderbird.desktop
-+#session_default_webbrowser=firefox
-+#session_default_email=thunderbird
++#session_default_webbrowser=firefox.desktop
++#session_default_email=thunderbird.desktop
  
  #THEME SETTINGS
  #theme.themefile=<file path> #Absolute path to the theme template file to use (disable for Lumina-Default)
-diff -Naur orig/lumina-desktop/fluxboxconf/fluxbox-init-rc patched/lumina-desktop/fluxboxconf/fluxbox-init-rc
---- orig/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-02-10 21:41:00.000000000 +0100
-+++ patched/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-03-05 17:27:52.837114410 +0100
+diff -Naur orig/src-qt5/core/lumina-desktop/defaults/luminaDesktop.pcbsd.conf patched/src-qt5/core/lumina-desktop/defaults/luminaDesktop.pcbsd.conf
+--- orig/src-qt5/core/lumina-desktop/defaults/luminaDesktop.pcbsd.conf	2016-06-18 02:12:13.995267355 +0200
++++ patched/src-qt5/core/lumina-desktop/defaults/luminaDesktop.pcbsd.conf	2016-06-18 02:14:45.365732860 +0200
+@@ -1,6 +1,6 @@
+ #PC-BSD configuration file for the Lumina Desktop Environment (0.8.7+)
+ 
+-# See the /usr/local/share/LuminaDE/luminaDesktop.conf file for all the possible values/details
++# See the /usr/share/LuminaDE/luminaDesktop.conf file for all the possible values/details
+ 
+ #GENERAL SESSION SETTINGS 
+ session_enablenumlock=false #[true/false] Enable numlock on login using "numlockx"
+diff -Naur orig/src-qt5/core/lumina-desktop/fluxboxconf/fluxbox-init-rc patched/src-qt5/core/lumina-desktop/fluxboxconf/fluxbox-init-rc
+--- orig/src-qt5/core/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-05-03 18:03:16.000000000 +0200
++++ patched/src-qt5/core/lumina-desktop/fluxboxconf/fluxbox-init-rc	2016-06-18 02:14:45.369732920 +0200
 @@ -66,7 +66,7 @@
  session.titlebar.right:	Minimize Maximize Close
  session.colorsPerChannel:	4
@@ -24,33 +35,3 @@ diff -Naur orig/lumina-desktop/fluxboxconf/fluxbox-init-rc patched/lumina-deskto
  session.doubleClickInterval:	250
  session.iconbar:	false
  session.cacheLife:	5
-diff -Naur orig/lumina-fileinfo/MainUI.ui patched/lumina-fileinfo/MainUI.ui
---- orig/lumina-fileinfo/MainUI.ui	2016-02-10 21:41:00.000000000 +0100
-+++ patched/lumina-fileinfo/MainUI.ui	2016-03-05 17:25:02.364269081 +0100
-@@ -312,7 +312,7 @@
-            </property>
-            <property name="icon">
-             <iconset>
--             <normalon>../../../../usr/local/share/icons/gnome/32x32/actions/gnome-run.png</normalon>
-+             <normalon>../../../../usr/share/icons/gnome/32x32/actions/gnome-run.png</normalon>
-             </iconset>
-            </property>
-           </widget>
-@@ -327,7 +327,7 @@
-            </property>
-            <property name="icon">
-             <iconset>
--             <normalon>../../../../usr/local/share/icons/gnome/32x32/places/folder.png</normalon>
-+             <normalon>../../../../usr/share/icons/gnome/32x32/places/folder.png</normalon>
-             </iconset>
-            </property>
-           </widget>
-@@ -347,7 +347,7 @@
-              </property>
-              <property name="icon">
-               <iconset>
--               <normalon>../../../../usr/local/share/icons/gnome/32x32/categories/xfce-graphics.png</normalon>
-+               <normalon>../../../../usr/share/icons/gnome/32x32/categories/xfce-graphics.png</normalon>
-               </iconset>
-              </property>
-              <property name="iconSize">

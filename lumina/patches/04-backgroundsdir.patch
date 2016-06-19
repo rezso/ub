@@ -1,7 +1,19 @@
-diff -Naur orig/lumina-config/mainUI.cpp patched/lumina-config/mainUI.cpp
---- orig/lumina-config/mainUI.cpp	2016-02-10 21:41:00.000000000 +0100
-+++ patched/lumina-config/mainUI.cpp	2016-03-05 17:17:14.037946776 +0100
-@@ -704,7 +704,7 @@
+diff -Naur orig/src-qt5/core/lumina-desktop/lumina-desktop.pro patched/src-qt5/core/lumina-desktop/lumina-desktop.pro
+--- orig/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-05-03 18:03:16.000000000 +0200
++++ patched/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-06-18 02:11:16.942338085 +0200
+@@ -75,7 +75,7 @@
+ 			wallpapers/Lumina_Wispy_blue-grey-zoom.jpg \
+ 			wallpapers/Lumina_Wispy_grey-blue.jpg \
+ 			wallpapers/Lumina_Wispy_grey-blue-zoom.jpg 
+-wallpapers.path = $${L_SHAREDIR}/wallpapers/Lumina-DE
++wallpapers.path = $${L_SHAREDIR}/backgrounds/Lumina-DE
+ 
+ 
+ defaults.files = defaults/luminaDesktop.conf \
+diff -Naur orig/src-qt5/core-utils/lumina-config/mainUI.cpp patched/src-qt5/core-utils/lumina-config/mainUI.cpp
+--- orig/src-qt5/core-utils/lumina-config/mainUI.cpp	2016-05-03 18:03:16.000000000 +0200
++++ patched/src-qt5/core-utils/lumina-config/mainUI.cpp	2016-06-18 02:11:16.946338147 +0200
+@@ -710,7 +710,7 @@
  
  void MainUI::deskbgadded(){
    //Prompt the user to find an image file to use for a background
@@ -10,7 +22,7 @@ diff -Naur orig/lumina-config/mainUI.cpp patched/lumina-config/mainUI.cpp
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    QStringList imgs = LUtils::imageExtensions();
-@@ -739,7 +739,7 @@
+@@ -745,7 +745,7 @@
  
  void MainUI::deskbgdiradded(){
    //Add the files from a single directory
@@ -19,7 +31,7 @@ diff -Naur orig/lumina-config/mainUI.cpp patched/lumina-config/mainUI.cpp
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);
-@@ -765,7 +765,7 @@
+@@ -771,7 +771,7 @@
  
  void MainUI::deskbgdirradded(){
    //Recursively add files from a directory
@@ -28,15 +40,3 @@ diff -Naur orig/lumina-config/mainUI.cpp patched/lumina-config/mainUI.cpp
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);
-diff -Naur orig/lumina-desktop/lumina-desktop.pro patched/lumina-desktop/lumina-desktop.pro
---- orig/lumina-desktop/lumina-desktop.pro	2016-02-10 21:41:00.000000000 +0100
-+++ patched/lumina-desktop/lumina-desktop.pro	2016-03-05 17:18:49.146418393 +0100
-@@ -71,7 +71,7 @@
- 			wallpapers/Lumina_Wispy_green.jpg \
- 			wallpapers/Lumina_Wispy_purple.jpg \
- 			wallpapers/Lumina_Wispy_red.jpg
--wallpapers.path = $${L_SHAREDIR}/wallpapers/Lumina-DE
-+wallpapers.path = $${L_SHAREDIR}/backgrounds/Lumina-DE
- 
- 
- defaults.files = defaults/luminaDesktop.conf \

@@ -1,7 +1,7 @@
-diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cpp
---- orig/libLumina/LuminaOS-Linux.cpp	2016-02-10 21:41:00.000000000 +0100
-+++ patched/libLumina/LuminaOS-Linux.cpp	2016-02-13 00:41:59.880766913 +0100
-@@ -21,7 +21,7 @@
+diff -Naur orig/src-qt5/core/libLumina/LuminaOS-Linux.cpp patched/src-qt5/core/libLumina/LuminaOS-Linux.cpp
+--- orig/src-qt5/core/libLumina/LuminaOS-Linux.cpp	2016-05-03 18:03:16.000000000 +0200
++++ patched/src-qt5/core/libLumina/LuminaOS-Linux.cpp	2016-06-18 02:44:59.811158192 +0200
+@@ -23,7 +23,7 @@
  
  //OS-specific application shortcuts (*.desktop files)
  QString LOS::ControlPanelShortcut(){ return ""; } //system control panel
@@ -10,7 +10,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  
  // ==== ExternalDevicePaths() ====
  QStringList LOS::ExternalDevicePaths(){
-@@ -135,7 +135,9 @@
+@@ -134,7 +134,9 @@
  
  //Check for user system permission (shutdown/restart)
  bool LOS::userHasShutdownAccess(){
@@ -21,7 +21,23 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  }
  
  //Check for whether the system is safe to power off (no updates being perfomed)
-@@ -155,12 +157,16 @@
+@@ -144,22 +146,30 @@
+ 
+ //System Shutdown
+ void LOS::systemShutdown(){ //start poweroff sequence
+-  QProcess::startDetached("shutdown -P -h now");
++  QProcess::startDetached("dbus-send --system --print-reply \
++  --dest=org.freedesktop.login1 /org/freedesktop/login1 \
++  org.freedesktop.login1.Manager.PowerOff boolean:true");
+ }
+ 
+ //System Restart
+ void LOS::systemRestart(){ //start reboot sequence
+-  QProcess::startDetached("shutdown -r now");
++  QProcess::startDetached("dbus-send --system --print-reply \
++  --dest=org.freedesktop.login1 /org/freedesktop/login1 \
++  org.freedesktop.login1.Manager.Reboot boolean:true");
+ }
  
  //Check for suspend support
  bool LOS::systemCanSuspend(){
@@ -40,7 +56,7 @@ diff -Naur orig/libLumina/LuminaOS-Linux.cpp patched/libLumina/LuminaOS-Linux.cp
  }
  
  //Battery Availability
-@@ -220,23 +226,45 @@
+@@ -219,23 +229,45 @@
  
  //file system capacity
  QString LOS::FileSystemCapacity(QString dir) { //Return: percentage capacity as give by the df command
